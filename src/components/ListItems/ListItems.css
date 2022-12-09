@@ -1,0 +1,19 @@
+.cards {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  gap: 3rem;
+  margin: 1rem 1rem 4rem 1rem;
+}
+
+.cards--item {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 1rem .25rem;
+}
+/*# sourceMappingURL=ListItems.css.map */

@@ -16,4 +16,4 @@ export const post = (params: IParams) =>
     body: JSON.stringify(params),
   })
     .then((res) => res.json())
-    .then((data) => data.books);
+    .then((data) => data);

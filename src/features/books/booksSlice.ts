@@ -5,12 +5,13 @@ import { IBooksState } from '../../utils/models';
 
 const initialState: IBooksState = {
   books: [],
+  count: 0,
   params: {
     page: 1,
     itemsPerPage: 20,
     filters: []
   },
-  status: 'idle',
+  status: 'idle', 
 };
 
 export const getBooks = createAsyncThunk(
@@ -41,7 +42,8 @@ export const booksSlice = createSlice({
       })
       .addCase(getBooks.fulfilled, (state, action) => {
         state.status = 'idle';
-        state.books = action.payload;
+        state.books = action.payload.books;
+        state.count = action.payload.count;
       })
       .addCase(getBooks.rejected, (state) => {
         state.status = 'failed';

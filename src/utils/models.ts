@@ -1,5 +1,6 @@
 export interface IBooksState {
   books: IBook[];
+  count: number;
   params: IParams;
   status: 'idle' | 'loading' | 'failed';
 }

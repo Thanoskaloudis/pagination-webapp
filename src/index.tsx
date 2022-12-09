@@ -16,7 +16,7 @@ root.render(
     <Provider store={store}>
       <BrowserRouter>
         <Routes>
-          <Route path="/books/page/:page/itemsPerPage/:itemsPerPage" element={<App />} />
+          <Route path="/books/page=:page/itemsPerPage=:itemsPerPage" element={<App />} />
         </Routes>
       </BrowserRouter>
     </Provider>
