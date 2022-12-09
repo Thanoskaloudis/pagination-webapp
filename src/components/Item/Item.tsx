@@ -17,7 +17,7 @@ export const Item = (props: IBook) => {
       {props.book_publication_city}, {props.book_publication_country} {props.book_publication_year}
       </Typography>
       <Typography sx={{ mb: 1, fontSize: 12, fontStyle: 'italic'}} color="text.secondary" component="span">
-        Pages:{props.book_pages}
+        Pages: {props.book_pages}
       </Typography>
     </CardContent>
   </Card>
