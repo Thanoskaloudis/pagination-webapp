@@ -1,21 +1,17 @@
 import React, { useEffect } from 'react';
-import * as API from "./utils/booksAPI";
+import { useAppDispatch, useAppSelector } from './store/hooks';
+import { getBooks } from './features/books/booksSlice';
 import './App.css';
 
+
 function App() {
+  const dispatch = useAppDispatch();
+  const books = useAppSelector((state) => state.booklist.books)
+
   useEffect(() => {
-    const getBooks = async () => {
-      try {
-        const res = await API.post(1, 20, []);
-        console.log(res);
-      } catch(error) {
-        console.log('Fetch error: ', error);
-      }
-    };
-
-    getBooks();
-  }, []);
-
+    dispatch(getBooks());
+  }, [dispatch]);
+  console.log(books);
 
   return (
     <div className="App">
