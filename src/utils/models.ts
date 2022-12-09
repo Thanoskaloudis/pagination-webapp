@@ -1,9 +1,10 @@
-export interface BooksState {
-  books: Book[];
+export interface IBooksState {
+  books: IBook[];
+  params: IParams;
   status: 'idle' | 'loading' | 'failed';
 }
 
-export interface Book {
+export interface IBook {
   book_author: string[];
   book_publication_city: string;
   book_publication_country: string;
@@ -11,4 +12,10 @@ export interface Book {
   book_pages: number;
   book_title: string;
   id: number;
+}
+
+export interface IParams {
+  page: number;
+  itemsPerPage: number;
+  filters: [];
 }

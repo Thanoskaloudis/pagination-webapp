@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from './store/hooks';
 import { getBooks } from './features/books/booksSlice';
-import './App.css';
-
+import { ListItems } from './components/ListItems/ListItems';
+import './App.scss';
 
 function App() {
   const dispatch = useAppDispatch();
@@ -14,9 +14,8 @@ function App() {
   console.log(books);
 
   return (
-    <div className="App">
-      <header className="App-header">
-      </header>
+    <div className="app">
+      <ListItems />
     </div>
   );
 }

@@ -1,17 +1,22 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState, AppThunk } from '../../store/store';
 import * as API from "../../utils/booksAPI";
-import { BooksState } from '../../utils/models';
+import { IBooksState, IParams } from '../../utils/models';
 
-const initialState: BooksState = {
+const initialState: IBooksState = {
   books: [],
+  params: {
+    page: 1,
+    itemsPerPage: 20,
+    filters: []
+  },
   status: 'idle',
 };
 
 export const getBooks = createAsyncThunk(
   'books/fetchBooks',
   async () => {
-    const response = await API.post(1, 20, []);
+    const response = await API.post(initialState.params);
     return response;
   }
 );
