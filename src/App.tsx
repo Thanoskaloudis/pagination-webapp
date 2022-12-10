@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import {
   useAppDispatch,
   useAppSelector,
@@ -20,7 +20,6 @@ import {
   Pagination,
   PaginationItem,
 } from '@mui/material';
-import { IParams } from './utils/models';
 import './App.scss';
 
 const App = () => {
@@ -58,9 +57,7 @@ const App = () => {
     dispatch(getBooks());
   };
 
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement>
-  ): void => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     if (!e.target.value) {
       return;
     } else {
@@ -77,7 +74,7 @@ const App = () => {
   return (
     <div className="app">
       {status === 'loading' ? (
-        <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+        <Box sx={{ height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
           <CircularProgress />
         </Box>
       ) : (

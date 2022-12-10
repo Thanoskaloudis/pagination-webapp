@@ -17,7 +17,7 @@ root.render(
     <Provider store={store}>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Navigate to="/books/page=1/itemsPerPage=20" />} />
+          <Route path="/" element={<Navigate to={`/books/page=${store.getState().booklist.params.page}/itemsPerPage=${store.getState().booklist.params.itemsPerPage}`} />} />
           <Route path="/books/page=:page/itemsPerPage=:itemsPerPage" element={<App />} />
           <Route path="/*" element={<PageNotFound />}/>
         </Routes>
