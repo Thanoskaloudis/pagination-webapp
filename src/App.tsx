@@ -2,14 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from './store/hooks';
 import { getBooks, updateItemsPerPage, updatePage } from './features/books/booksSlice';
 import { ListItems } from './components/ListItems/ListItems';
-import { Link, useLocation, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { Pagination, PaginationItem } from '@mui/material';
-
+import { IParams } from './utils/models';
 import './App.scss';
-
 
 function App() {
   const params = useParams();
+  const navigate = useNavigate();
   
   const dispatch = useAppDispatch();
 
@@ -23,11 +23,23 @@ function App() {
     dispatch(getBooks());
   }, [dispatch, params.itemsPerPage, params.page]);
 
-  const handlePageChange = () => {
+  const handlePageChange = (): void => {
     dispatch(updatePage(Number(params.page)));
     dispatch(updateItemsPerPage(Number(params.itemsPerPage)));
     dispatch(getBooks());
   }
+
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    if(!e.target.value){
+      return
+    } else {
+      navigate(`/books/page=${page}/itemsPerPage=${e.target.value}`);
+      dispatch(updatePage(Number(params.page)));
+      dispatch(updateItemsPerPage(Number(params.itemsPerPage)));
+    }
+  }
+
 
   return (
     <div className="app">
@@ -45,17 +57,14 @@ function App() {
           />
         )}
       />
+      <div className="app__pagination__input">
+          <span>Items per page: </span>
+          <input type="number" min="1" max={count} value={params.itemsPerPage} onChange={(e)=> handleInputChange(e)}></input>
+      </div>
       </div>
     </div>
   );
 }
 
 export default App;
-function selectCollection(page: string | undefined) {
-  throw new Error('Function not implemented.');
-}
-
-function selectAppCollection(page: string | undefined) {
-  throw new Error('Function not implemented.');
-}
 

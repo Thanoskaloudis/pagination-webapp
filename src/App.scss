@@ -10,5 +10,10 @@
     background: white;
     position: fixed;
     bottom: 0;
+
+    &__input {
+      position: fixed;
+      right: 50px;
+    }
   }
 }
