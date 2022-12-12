@@ -19,7 +19,7 @@ export const getBooks = createAsyncThunk(
   async (arg, { getState }) => { 
     const state: any = getState();
     const response = await API.post(state.booklist.params);
-    console.log(response)
+
     return response;
   }
 );

@@ -1,7 +1,7 @@
 import { render,  screen } from '@testing-library/react';
-import { mockData } from '../../utils/mocks';
-import { ListItems } from './ListItems';
-import { testableComponent } from '../../utils/utilsTest';
+import { mockData } from '../utils/mocks';
+import { ListItems } from '../components/ListItems/ListItems';
+import { testableComponent } from '../utils/utilsTest';
 
 describe('Listitems Component', () => {
   it('Should load the correct number of list items', () => {

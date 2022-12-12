@@ -1,7 +1,7 @@
 import { render,  screen } from '@testing-library/react';
-import { mockBook, mockData } from '../../utils/mocks';
-import { Item } from './Item';
-import { testableComponent } from '../../utils/utilsTest';
+import { mockBook, mockData } from '../utils/mocks';
+import { Item } from '../components/Item/Item';
+import { testableComponent } from '../utils/utilsTest';
 
 describe('Item Component', () => {
   it('Should load the card with the correct book title', () => {

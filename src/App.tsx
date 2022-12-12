@@ -1,25 +1,9 @@
 import React, { useEffect } from 'react';
-import {
-  useAppDispatch,
-  useAppSelector,
-} from './store/hooks';
-import {
-  getBooks,
-  updateItemsPerPage,
-  updatePage,
-} from './features/books/booksSlice';
+import { useAppDispatch, useAppSelector } from './store/hooks';
+import { getBooks, updateItemsPerPage, updatePage } from './features/books/booksSlice';
 import { ListItems } from './components/ListItems/ListItems';
-import {
-  Link,
-  useNavigate,
-  useParams,
-} from 'react-router-dom';
-import {
-  Box,
-  CircularProgress,
-  Pagination,
-  PaginationItem,
-} from '@mui/material';
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import { Box, CircularProgress, Pagination, PaginationItem } from '@mui/material';
 import './App.scss';
 
 const App = () => {
@@ -28,32 +12,20 @@ const App = () => {
 
   const dispatch = useAppDispatch();
 
-  const page = useAppSelector(
-    (state) => state.booklist.params.page
-  );
-  const itemsPerPage = useAppSelector(
-    (state) => state.booklist.params.itemsPerPage
-  );
-  const count = useAppSelector(
-    (state) => state.booklist.count
-  );
-  const status = useAppSelector(
-    (state) => state.booklist.status
-  );
+  const page = useAppSelector((state) => state.booklist.params.page);
+  const itemsPerPage = useAppSelector((state) => state.booklist.params.itemsPerPage);
+  const count = useAppSelector((state) => state.booklist.count);
+  const status = useAppSelector((state) => state.booklist.status);
 
   useEffect(() => {
     dispatch(updatePage(Number(params.page)));
-    dispatch(
-      updateItemsPerPage(Number(params.itemsPerPage))
-    );
+    dispatch(updateItemsPerPage(Number(params.itemsPerPage)));
     dispatch(getBooks());
   }, [dispatch, params.itemsPerPage, params.page]);
 
   const handlePageChange = (): void => {
     dispatch(updatePage(Number(params.page)));
-    dispatch(
-      updateItemsPerPage(Number(params.itemsPerPage))
-    );
+    dispatch(updateItemsPerPage(Number(params.itemsPerPage)));
     dispatch(getBooks());
   };
 
@@ -65,9 +37,7 @@ const App = () => {
         `/books/page=${page}/itemsPerPage=${e.target.value}`
       );
       dispatch(updatePage(Number(params.page)));
-      dispatch(
-        updateItemsPerPage(Number(params.itemsPerPage))
-      );
+      dispatch(updateItemsPerPage(Number(params.itemsPerPage)));
     }
   };
 

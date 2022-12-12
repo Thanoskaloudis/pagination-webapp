@@ -1,8 +1,8 @@
 import counterReducer, {
   updatePage,
   updateItemsPerPage,
-} from '../../features/books/booksSlice';
-import { IBooksState } from '../../utils/models';
+} from '../features/books/booksSlice';
+import { IBooksState } from '../utils/models';
 
 describe('booklist reducer', () => {
   const initialState: IBooksState = {
